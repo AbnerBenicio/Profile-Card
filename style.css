@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Faz com que as medidas sejam todas dadas a partir da borda, não ignorando elas, por exemplo, no preenchimento*/
+}
+
+:root {
+    --text-color: #fff;
+    --bg-url: url("./imagens/bg-mobile.jpg");
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --background-color: rgba(255, 255, 255, 0.1);
+    --background-color-hover: rgba(0, 0, 0, 0.05);
+    --social-link-hover: rgba(255, 255, 255, 0.3);
+    --background-switch: url("./imagens/sun.svg"); 
+}
+
+.light {
+    --text-color: #000;
+    --bg-url: url("./imagens/bg-mobile-light.jpg");
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --background-color: rgba(0, 0, 0, 0.05);
+    --background-color-hover: rgba(0, 0, 0, 0.02);
+    --social-link-hover: rgba(0, 0, 0, 0.1);
+    --background-switch: url("./imagens/moon-stars.svg"); 
+}
+
+
+body {
+    /*pode conter tudo em background: color image repeat position/size;*/
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+}
+
+#container {
+    width: 360px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+/*Para alinhar um elemento inline, ou eu transformo ele em block e utilizo margin auto, ou eu pego o nó (tag) pai e uso text-align*/
+
+#profile img {
+    display: block;
+    width: 112px;
+    margin: auto;
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+    cursor: pointer;
+}
+
+#switch button {
+    position: absolute;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fff var(--background-switch) no-repeat center;
+    border: 0;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    border-radius: 9999px;
+    border: 1px solid var(--stroke-color);
+    background: var(--background-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/*Links*/
+
+ul {
+    padding: 24px 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /*gap é o espaçamento entre os conteúdos filhos, quando o pai, nesse caso "ul", tem display flex*/
+}
+
+ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px 24px;
+
+    background-color: var(--background-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+
+    font-weight: 500;
+    text-decoration: 0;
+
+    transition: background-color 0.2s;
+}
+
+ul li a:hover {
+    background-color: var(--background-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+}
+
+#social-links a i {
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: 0;
+    padding: 16px;
+    transition: background-color 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover {
+    background-color: var(--social-link-hover);
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
